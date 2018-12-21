@@ -131,9 +131,10 @@ tu.onmouseout = function(){
 }
 tu.onmousemove = function(ev){
 	var ev = ev||window.event;
+	var stt = document.documentElement.scrollTop || document.body.scrollTop;
 	//根据鼠标位置计算放大镜的位置
 	var left = ev.clientX - tu.offsetLeft - slider.offsetWidth/2;
-	var top = ev.clientY - tu.offsetTop - slider.offsetHeight/2;
+	var top = ev.clientY - tu.offsetTop - slider.offsetHeight/2 +stt;
   	var maxLeft = tu.offsetWidth - slider.offsetWidth;
   	var maxTop = tu.offsetHeight - slider.offsetHeight;
   	left = left>maxLeft?maxLeft:left<0?0:left;
