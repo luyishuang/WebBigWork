@@ -37,12 +37,12 @@ button2.onclick = function(){
 	if(input2.value > 1){
 		input2.value = input2.value - 1;
 	}
-	if(input2.value == 5){
-		button2.style.cursor = 'pointer';
-		button3.style.cursor = 'not-allowed';
-	} 
 	if(input2.value == 1){
+		button3.style.cursor = 'pointer';
 		button2.style.cursor = 'not-allowed';
+	} 
+	else{
+		button2.style.cursor = 'pointer';
 		button3.style.cursor = 'pointer';
 	} 
 }
@@ -54,8 +54,8 @@ button3.onclick = function(){
 		button2.style.cursor = 'pointer';
 		button3.style.cursor = 'not-allowed';
 	} 
-	if(input2.value == 1){
-		button2.style.cursor = 'not-allowed';
+	else{
+		button2.style.cursor = 'pointer';
 		button3.style.cursor = 'pointer';
 	} 
 }
@@ -114,6 +114,9 @@ var rongqi = document.getElementsByClassName('rongqi')[0];
 var Bimg = document.getElementsByClassName('Bimg')[0];
 // var Bimg1 = document.getElementsByClassName('Bimg1')[0];
 var slider = document.getElementsByClassName('slider')[0];
+
+var juli = tu.offsetLeft;
+rongqi.style.left = juli + 408 + 'px';
 //给左侧的小图绑定移入移出移动事件
 tu.onmouseover = function(){
 	if(tutu.style.left == '0px'){

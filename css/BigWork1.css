@@ -267,7 +267,8 @@ ul{
 .tutu{
 	width: 816px;
 	height: 408px;	
-	position: absolute;	
+	/*position: absolute;*/
+	position: relative;	
 }
 .datu{
 	float: left;
