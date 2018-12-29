@@ -164,36 +164,69 @@ var hua2 = document.getElementsByClassName('hua2')[0];
 var hua3 = document.getElementsByClassName('hua3')[0];
 var hua4 = document.getElementsByClassName('hua4')[0];
 var serweima = document.getElementsByClassName('serweima')[0];
-hua1.onmouseover = function (){
-    hua1.style.right = '0px';
+function getStyle(obj, attr){
+    if(obj.currentStyle){
+        return obj.currentStyle[attr];
+    } else {
+        return getComputedStyle(obj, null)[attr];
+    }
 }
-hua1.onmouseout = function (){
-    flag1 = 1;
-    hua1.style.right = '-89px';
+function animate(obj,json,callback){
+    clearInterval(obj.timer);
+    obj.timer = setInterval(function(){
+        var isStop = true;
+        for(var attr in json){
+            var now = 0;
+            if(attr == 'opacity'){
+                now = parseInt(getStyle(obj,attr)*100);
+            }else{
+                now = parseInt(getStyle(obj,attr));
+            }
+            var speed = (json[attr] - now) / 8;
+            speed = speed>0?Math.ceil(speed):Math.floor(speed);
+            var cur = now + speed;
+            if(attr == 'opacity'){
+                obj.style[attr] = cur / 100;
+            }else{
+                obj.style[attr] = cur + 'px';
+            }
+            if(json[attr] !== cur){
+                isStop = false;
+            }
+        }
+        if(isStop){
+            clearInterval(obj.timer);
+            callback&&callback();
+        }
+    }, 30)
 }
-hua2.onmouseover = function (){
-    hua2.style.right = '0px';
+hua1.onmouseover = function(){
+    animate(hua1,{right:0});
 }
-hua2.onmouseout = function (){
-    hua2.style.right = '-89px';
+hua1.onmouseout = function(){
+    animate(hua1,{right:-89});
 }
-hua3.onmouseover = function (){
-    hua3.style.right = '0px';
+hua2.onmouseover = function(){
+    animate(hua2,{right:0});
+}
+hua2.onmouseout = function(){
+    animate(hua2,{right:-89});
+}
+hua3.onmouseover = function(){
+    animate(hua3,{right:0});
     serweima.src="../img/erwei.png"; 
     serweima.classList.remove("serweima");
     serweima.classList.add("erweima");
 }
-
-hua3.onmouseout = function (){
-    hua3.style.right = '-89px';
+hua3.onmouseout = function(){
+    animate(hua3,{right:-89});
     serweima.src="../img/serwei.png";
     serweima.classList.remove("erweima");
     serweima.classList.add("serweima");
 }
-hua4.onmouseover = function (){
-    hua4.style.right = '0px';
+hua4.onmouseover = function(){
+    animate(hua4,{right:0});
 }
-hua4.onmouseout = function (){
-    hua4.style.right = '-89px';
-} 
-
+hua4.onmouseout = function(){
+    animate(hua4,{right:-89});
+}
