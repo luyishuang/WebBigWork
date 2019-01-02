@@ -112,7 +112,6 @@ you.onclick = dianji;
 var tu = document.getElementsByClassName('tu')[0];
 var rongqi = document.getElementsByClassName('rongqi')[0];
 var Bimg = document.getElementsByClassName('Bimg')[0];
-// var Bimg1 = document.getElementsByClassName('Bimg1')[0];
 var slider = document.getElementsByClassName('slider')[0];
 
 var juli = tu.offsetLeft;
