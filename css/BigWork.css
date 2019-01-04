@@ -210,7 +210,6 @@ ul{
 	width: 1180px;
 }
 .text9{
-
 	line-height: 41px;
 	color: #fff;
 }
@@ -227,8 +226,13 @@ ul{
 	font-size: 15px;
 	padding-right: 54px;
 }
-.header{
-	background: url(../img/hot.gif) 1050px 130px no-repeat;
+.yiyuan{
+	position: relative;
+}
+.hot{
+	position: absolute;
+	top:-6px;
+	right: 28px;
 }
 .box4{
 	width: 100%;
